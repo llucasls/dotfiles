@@ -46,8 +46,10 @@ set tabstop=4
 set mouse=a
 "Fix cursor replacement after closing nvim
 set guicursor=
-"Shift + Tab does inverse tab
-inoremap <S-Tab> <C-d>
+"Shift + Tab writes hard tab
+inoremap <S-Tab> <C-V><Tab>
+"Ctrl + Tab does inverse tab
+inoremap <C-Tab> <C-d>
 
 "See invisible characters
 set list listchars=tab:>\ ,trail:+,eol:$
@@ -67,9 +69,9 @@ nnoremap ŋ :hide blast <cr>
 "Press AltGr + s to go to first tab
 nnoremap ß :hide bfirst <cr>
 "Press AltGr + c to close current tab
-"nnoremap © :tabclose <cr>
+nnoremap © :bdelete <cr>
 "Press AltGr + a to toggle NerdTree
-nnoremap æ :NERDTreeToggle <cr>
+noremap æ :NERDTreeToggle <cr>
 "Remap the j, k, 0 and $ keys to gj, gk, g0 and g$ in normal mode
 nmap j gj
 nmap k gk
