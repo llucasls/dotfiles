@@ -59,6 +59,7 @@ set whichwrap+=<,>,[,]
 
 set clipboard+=unnamedplus
 set termguicolors
+set colorcolumn=80
 
 "Press AltGr + f to go to next tab
 nnoremap đ :hide bnext <cr>
@@ -77,6 +78,13 @@ nmap j gj
 nmap k gk
 nmap 0 g0
 nmap $ g$
+
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap ' ''<left>
+inoremap " ""<left>
+
 highlight Cursor guifg=#2E3440 guibg=#ECEFF4
 highlight iCursor guifg=#2E3440 guibg=#ECEFF4
 highlight rCursor guifg=#2E3440 guibg=#ECEFF4
