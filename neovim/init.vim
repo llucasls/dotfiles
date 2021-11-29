@@ -72,7 +72,7 @@ nnoremap ß :hide bfirst <cr>
 "Press AltGr + c to close current tab
 nnoremap © :bdelete <cr>
 "Press AltGr + a to toggle NerdTree
-noremap æ :NERDTreeToggle <cr>
+nnoremap æ :NERDTreeToggle <cr>
 "Remap the j, k, 0 and $ keys to gj, gk, g0 and g$ in normal mode
 nmap j gj
 nmap k gk
