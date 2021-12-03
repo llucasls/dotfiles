@@ -19,10 +19,14 @@ Plug 'shmup/vim-sql-syntax'
 Plug 'ekalinin/dockerfile.vim'
 call plug#end()
 
+" Rodar o Aggregations
+nnoremap <F5> :!mongosh < %<cr>
+nnoremap <F6> :!node %<cr>
+
 syntax enable
 
 set number
-"set relativenumber
+set relativenumber
 
 let g:gruvbox_italic=1
 colorscheme nord
