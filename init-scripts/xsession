@@ -1,0 +1,2 @@
+. ~/.profile
+exec /usr/local/bin/spectrwm

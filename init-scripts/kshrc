@@ -1,0 +1,7 @@
+export PS1='\033[34m\W\033[32m →\033[0m '
+export PS2='→ '
+
+alias _add="doas pkg_add"
+alias _list="pkg_info -Q"
+alias _info="pkg_info"
+alias _del="doas pkg_delete"
