@@ -21,6 +21,7 @@ call plug#end()
 
 " Rodar o Aggregations
 nnoremap <F5> :!mongosh < %<cr>
+nnoremap <F7> :!node %
 nnoremap <F6> :!node %<cr>
 
 syntax enable
