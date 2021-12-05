@@ -10,4 +10,6 @@ export PATH HOME TERM ENV XDG_CONFIG_HOME XDG_DATA_HOME
 
 [ -f ~/.kshrc ] && . ~/.kshrc
 
-wmctrl -c xconsole
+if [ -x $(which wmctrl) ]; then
+	wmctrl -c xconsole
+fi
