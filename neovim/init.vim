@@ -17,17 +17,19 @@ Plug 'mxw/vim-jsx'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'shmup/vim-sql-syntax'
 Plug 'ekalinin/dockerfile.vim'
+Plug 'diepm/vim-rest-console'
 call plug#end()
 
-" Rodar o Aggregations
-nnoremap <F5> :!mongosh < %<cr>
-nnoremap <F7> :!node %
-nnoremap <F6> :!node %<cr>
+nnoremap <F4> :nohlsearch<cr>
+nnoremap <F5> :!node %
+nnoremap <F9> :e ./.rest<cr>:set ft=rest<cr>
+let g:vrc_horizontal_split=1
 
 syntax enable
 
 set number
 set relativenumber
+set hidden
 
 let g:gruvbox_italic=1
 colorscheme nord
@@ -64,18 +66,20 @@ set whichwrap+=<,>,[,]
 
 set clipboard+=unnamedplus
 set termguicolors
-set colorcolumn=80
+set colorcolumn=100
 
-"Press AltGr + f to go to next tab
+"Press AltGr + f to go to next buffer
 nnoremap đ :hide bnext <cr>
-"Press AltGr + d to go to previous tab
+"Press AltGr + d to go to previous buffer
 nnoremap ð :hide bprevious <cr>
-"Press AltGr + g to go to last tab
+"Press AltGr + g to go to last buffer
 nnoremap ŋ :hide blast <cr>
-"Press AltGr + s to go to first tab
+"Press AltGr + s to go to first buffer
 nnoremap ß :hide bfirst <cr>
-"Press AltGr + c to close current tab
-nnoremap © :bdelete <cr>
+"Press AltGr + c to close current buffer
+nnoremap © :bdelete! <cr>
+"Press AltGr + v to open a new buffer
+nnoremap “ :hide enew <cr>
 "Press AltGr + a to toggle NerdTree
 nnoremap æ :NERDTreeToggle <cr>
 "Remap the j, k, 0 and $ keys to gj, gk, g0 and g$ in normal mode
