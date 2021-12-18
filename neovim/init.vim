@@ -7,6 +7,8 @@ Plug 'tomtom/tlib_vim'
 Plug 'honza/vim-snippets'
 Plug 'arcticicestudio/nord-vim'
 "Plug 'morhetz/gruvbox'
+"Plug 'liuchengxu/space-vim-dark'
+"Plug 'raphamorim/lucario'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'othree/html5.vim'
@@ -20,19 +22,22 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'diepm/vim-rest-console'
 call plug#end()
 
+tnoremap <Esc> <C-\><C-n>
 nnoremap <F4> :nohlsearch<cr>
 nnoremap <F5> :!node %
 nnoremap <F9> :e ./.rest<cr>:set ft=rest<cr>
 let g:vrc_horizontal_split=1
 
 syntax enable
+colorscheme nord
+"colorscheme space-vim-dark
+"colorscheme lucario
 
 set number
 set relativenumber
 set hidden
 
 let g:gruvbox_italic=1
-colorscheme nord
 set background=dark
 "highlight Normal     ctermbg=NONE guibg=NONE
 "highlight LineNr     ctermbg=NONE guibg=NONE
@@ -66,7 +71,7 @@ set whichwrap+=<,>,[,]
 
 set clipboard+=unnamedplus
 set termguicolors
-set colorcolumn=100
+set colorcolumn=80
 
 "Press AltGr + f to go to next buffer
 nnoremap đ :hide bnext <cr>
