@@ -23,6 +23,7 @@ call plug#end()
 nnoremap <F4> :nohlsearch<cr>
 nnoremap <F5> :!node %
 nnoremap <F9> :e ./.rest<cr>:set ft=rest<cr>
+tnoremap <esc> <C-\><C-n>
 let g:vrc_horizontal_split=1
 
 syntax enable
@@ -66,7 +67,7 @@ set whichwrap+=<,>,[,]
 
 set clipboard+=unnamedplus
 set termguicolors
-set colorcolumn=100
+set colorcolumn=80
 
 "Press AltGr + f to go to next buffer
 nnoremap đ :hide bnext <cr>
