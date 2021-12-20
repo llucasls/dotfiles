@@ -30,8 +30,8 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   dimensions:
-    columns: 140
-    lines: 32
+    columns: 0
+    lines: 0
 
   # Window position (changes require restart)
   #
@@ -50,7 +50,7 @@ window:
   #  y: 0
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -61,7 +61,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: full
+  decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -112,13 +112,10 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: monospace
-    family: ubuntumono
-    family: inconsolata
-    family: firacode
+    family: liberationmono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
-    style: Retina
 
   # Bold font face
   bold:
@@ -128,7 +125,6 @@ font:
     # value specified for the normal font.
     # family: monospace
     family: monospace
-    family: ubuntumono
     family: liberationmono
 
     # The `style` can be specified to pick a specific face.
@@ -141,7 +137,6 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     family: monospace
-    family: ubuntumono
     family: liberationmono
 
     # The `style` can be specified to pick a specific face.
@@ -155,7 +150,6 @@ font:
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     family: monospace
-    family: ubuntumono
     family: liberationmono
 
     # The `style` can be specified to pick a specific face.
