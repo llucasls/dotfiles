@@ -4,8 +4,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'honza/vim-snippets'
 Plug 'arcticicestudio/nord-vim'
+Plug 'garbas/vim-snipmate'
 "Plug 'morhetz/gruvbox'
 "Plug 'liuchengxu/space-vim-dark'
 "Plug 'raphamorim/lucario'
@@ -28,6 +28,8 @@ nnoremap <F5> :!node %
 nnoremap <F9> :e ./.rest<cr>:set ft=rest<cr>
 tnoremap <esc> <C-\><C-n>
 let g:vrc_horizontal_split=1
+
+let g:snipMate = { 'snippet_version' : 1 }
 
 syntax enable
 colorscheme nord
