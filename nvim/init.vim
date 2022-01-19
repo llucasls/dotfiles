@@ -31,6 +31,8 @@ let g:vrc_horizontal_split=1
 
 let g:snipMate = { 'snippet_version' : 1 }
 
+let g:vrc_curl_opts = { '-v': '', }
+
 syntax enable
 colorscheme nord
 "colorscheme space-vim-dark
