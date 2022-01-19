@@ -78,20 +78,14 @@ set clipboard+=unnamedplus
 set termguicolors
 set colorcolumn=80
 
-"Press AltGr + f to go to next buffer
-nnoremap đ :hide bnext <cr>
-"Press AltGr + d to go to previous buffer
-nnoremap ð :hide bprevious <cr>
-"Press AltGr + g to go to last buffer
-nnoremap ŋ :hide blast <cr>
-"Press AltGr + s to go to first buffer
-nnoremap ß :hide bfirst <cr>
-"Press AltGr + c to close current buffer
-nnoremap © :bdelete! <cr>
-"Press AltGr + v to open a new buffer
-nnoremap “ :hide enew <cr>
-"Press AltGr + a to toggle NerdTree
-nnoremap æ :NERDTreeToggle <cr>
+nnoremap <PageUp> :hide bprevious <cr>
+nnoremap <PageDown> :hide bnext <cr>
+nnoremap <Home> :hide bfirst <cr>
+nnoremap <End> :hide blast <cr>
+nnoremap <Del> :bdelete! <cr>
+nnoremap <F2> :NERDTreeToggle <cr>
+"nnoremap <Insert> :hide enew <cr>
+
 "Remap the j, k, 0 and $ keys to gj, gk, g0 and g$ in normal mode
 nmap j gj
 nmap k gk
