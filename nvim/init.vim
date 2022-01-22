@@ -101,7 +101,6 @@ inoremap " ""<left>
 highlight Cursor guifg=#2E3440 guibg=#ECEFF4
 highlight iCursor guifg=#2E3440 guibg=#ECEFF4
 highlight rCursor guifg=#2E3440 guibg=#ECEFF4
-set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=r:hor100-rCursor
 
