@@ -7,9 +7,10 @@ command_timeout = 1000
 disabled = true
 
 # Replace the "❯" symbol in the prompt with "➜"
-[character]                        # The name of the module we are configuring is "character"
-success_symbol = "[→](green)"      # The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[✗](red)"	       # Any non-zero return is being set to "✗" with the color "bold red"
+[character]							# The name of the module we are configuring is "character"
+success_symbol = "[→](green)"		# The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](red)"			# Any non-zero return is being set to "✗" with the color "bold red"
+vicmd_symbol = "[❯](blue)"			# Change the arrow "→" to a blue chevron "❯" when in vi mode
 
 # Disable the package module, hiding it from the prompt completely
 # [package]
