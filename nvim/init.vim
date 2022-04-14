@@ -26,8 +26,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
-nnoremap <F5> :!w<cr> :!node %<cr>
-nnoremap <F6> :!w<cr> :!mongosh --quiet < %<cr>
+nnoremap <F5> :w<cr> :!node %<cr>
+nnoremap <silent> <F6> :w<cr> :!mongosh --quiet < %<cr>
 nnoremap <F9> :e ./.rest<cr>:set ft=rest<cr>
 tnoremap <esc> <C-\><C-n>
 let g:vrc_horizontal_split=1
