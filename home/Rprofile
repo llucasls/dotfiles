@@ -1,0 +1,9 @@
+local({
+  repos <- getOption("repos")
+  repos["CRAN"] <- "https://vps.fmvz.usp.br/CRAN/"
+  options(repos = repos)
+})
+options(
+  "pager" = "/usr/bin/less",
+  "browser" = "/usr/bin/brave"
+)
