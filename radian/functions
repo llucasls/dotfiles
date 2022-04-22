@@ -1,3 +1,1 @@
-nvim <- function(...) eval(
-  call("system2", command = "nvim", args = unlist(list(...)))
-)
+nvim <- function(...) edit(editor = "nvim", ...)
