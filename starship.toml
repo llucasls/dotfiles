@@ -25,7 +25,8 @@ format = "[$path]($style) [$read_only]($read_only_style)"
 disabled = false
 
 [cmd_duration]
-min_time = 5000
+min_time = 60000
+disabled = true
 
 # for more information, visit: techviewleo.com/install-starship-shell-prompt-bash-zsh-fish/
 

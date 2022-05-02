@@ -1,0 +1,1 @@
+nvim <- function(...) edit(editor = "nvim", ...)
