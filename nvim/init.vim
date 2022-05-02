@@ -1,6 +1,8 @@
+let g:polyglot_disabled = ['sensible']
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -11,16 +13,12 @@ Plug 'garbas/vim-snipmate'
 "Plug 'raphamorim/lucario'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'sheerun/vim-json'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'shmup/vim-sql-syntax'
-Plug 'ekalinin/dockerfile.vim'
 Plug 'diepm/vim-rest-console'
+Plug 'sheerun/vim-polyglot'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <F2> :NERDTreeToggle <cr>
