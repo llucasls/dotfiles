@@ -8,11 +8,15 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'garbas/vim-snipmate'
+"Plug 'morhetz/gruvbox'
+"Plug 'liuchengxu/space-vim-dark'
+"Plug 'raphamorim/lucario'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'diepm/vim-rest-console'
 Plug 'sheerun/vim-polyglot'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -20,10 +24,12 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
-nnoremap <F5> :w<cr> :!node %<cr>
-nnoremap <silent> <F6> :w<cr> :!mongosh --quiet < %<cr>
-nnoremap <F9> :e ./.rest<cr>:set ft=rest<cr>
-tnoremap <esc> <C-\><C-n>
+nnoremap <F5> :w<cr> :!ts-node %<cr>
+nnoremap <F6> :w<cr> :!mysql --table < %<cr>
+" shift + F6
+nnoremap <F18> :w<cr> :!mongosh < %<cr>
+nnoremap <F8> :e term://pulsemixer<cr>
+nnoremap <F9> :e ~/.rest<cr>
 let g:vrc_horizontal_split=1
 
 filetype on
@@ -99,6 +105,7 @@ inoremap " ""<left>
 highlight Cursor guifg=#2E3440 guibg=#ECEFF4
 highlight iCursor guifg=#2E3440 guibg=#ECEFF4
 highlight rCursor guifg=#2E3440 guibg=#ECEFF4
+set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=r:hor100-rCursor
 
