@@ -9,6 +9,7 @@ Plug 'garbas/vim-snipmate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'diepm/vim-rest-console'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 tnoremap <Esc> <C-\><C-n>
