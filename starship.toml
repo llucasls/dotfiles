@@ -38,6 +38,9 @@ format = "[$symbol$branch]($style) "
 
 # for more information, visit: techviewleo.com/install-starship-shell-prompt-bash-zsh-fish/
 
+[c]
+disabled = true
+
 [aws]
 disabled = true
 
