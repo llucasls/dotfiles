@@ -28,6 +28,14 @@ disabled = false
 min_time = 60000
 disabled = true
 
+[python]
+disabled = false
+format = '[(\($virtualenv\) )]($style)'
+
+[git_branch]
+disabled = false
+format = "[$symbol$branch]($style) "
+
 # for more information, visit: techviewleo.com/install-starship-shell-prompt-bash-zsh-fish/
 
 [aws]
@@ -112,9 +120,6 @@ disabled = true
 disabled = true
 
 [purescript]
-disabled = true
-
-[python]
 disabled = true
 
 [red]
