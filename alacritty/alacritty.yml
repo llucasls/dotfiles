@@ -122,6 +122,9 @@ font:
     family: liberationmono
     style: Bold Italic
   size: 10
+  offset:
+    x: 0
+    y: 0
 
 colors:
   # Default colors
