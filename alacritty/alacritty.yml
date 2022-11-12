@@ -730,6 +730,7 @@ key_bindings:
   - { key: C,           mods: Shift|Control,          action: Copy,               }
   - { key: V,           mods: Shift|Control,          action: Paste,              }
   - { key: L,           mods: Control,                action: ClearLogNotice,     }
+  - { key: L,           mods: Shift|Control,          action: ClearHistory,       }
   - { key: Up,          mods: Control,                action: ScrollLineUp,       }
   - { key: Down,        mods: Control,                action: ScrollLineDown,     }
   - { key: PageUp,      mods: Alt,                    action: ScrollHalfPageUp,   }
