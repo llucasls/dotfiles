@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'diepm/vim-rest-console'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/info.vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -24,13 +25,15 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
-nnoremap <F5> :w<cr> :!node %<cr>
+nnoremap <F5> :w<cr> :!ts-node %<cr>
 nnoremap <F17> :w<cr> :!python %<cr>
 nnoremap <F6> :w<cr> :!mysql --table < %<cr>
 " shift + F6
-nnoremap <F18> :w<cr> :!mongosh < %<cr>
+nnoremap <F18> :w<cr> :!mongosh --quiet < %<cr>
 nnoremap <F8> :e term://pulsemixer<cr>
-nnoremap <F9> :e ~/.rest<cr>
+nnoremap <F9> :w<cr> :!coffee -bp %<cr>
+nnoremap <C-y> :%y+<cr>
+
 let g:vrc_horizontal_split=1
 
 filetype on
@@ -106,7 +109,7 @@ inoremap " ""<left>
 highlight Cursor guifg=#2E3440 guibg=#ECEFF4
 highlight iCursor guifg=#2E3440 guibg=#ECEFF4
 highlight rCursor guifg=#2E3440 guibg=#ECEFF4
-set guicursor=n-v-c:block-Cursor
+"set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=r:hor100-rCursor
 
