@@ -102,3 +102,6 @@ function s:HelpCurwin(subject) abort
 endfunction
 
 set clipboard^=unnamedplus,autoselectplus
+
+" Uncomment on Windows
+" set backupdir=~/_cache/vim/backup//
