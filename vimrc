@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'christoomey/vim-system-copy'
+
 Plug 'w0rp/ale'
 ""Plug 'MarcWeber/vim-addon-mw-utils'
 ""Plug 'tomtom/tlib_vim'
@@ -11,7 +12,6 @@ Plug 'w0rp/ale'
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-tnoremap <Esc> <C-\><C-n>
 nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
@@ -100,3 +100,5 @@ function s:HelpCurwin(subject) abort
   endif
   return 'help ' .. a:subject
 endfunction
+
+set clipboard^=unnamedplus,autoselectplus
