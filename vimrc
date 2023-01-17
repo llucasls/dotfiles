@@ -105,3 +105,15 @@ set clipboard^=unnamedplus,autoselectplus
 
 " Uncomment on Windows
 " set backupdir=~/_cache/vim/backup//
+"
+" black:   3b4252		bright_black: 4c566a
+" red:     bf616a
+" green:   a3be8c
+" yellow:  ebcb8b
+" blue:    5e81ac		bright_blue:  81a1c1
+" magenta: b48ead
+" cyan:    88c0d0		bright_cyan:  8fbcbb
+" white:   e5e9f0		bright_white: eceff4
+"
+" background: 2e3440
+" foreground: d8dee9
