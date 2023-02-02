@@ -25,7 +25,7 @@ nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
 nnoremap <F5> :w<cr> :!node %<cr>
-nnoremap <F17> :w<cr> :!python %<cr>
+nnoremap <S-F5> :w<cr> :!python %<cr>
 nnoremap <F6> :w<cr> :!mysql --table < %<cr>
 " shift + F6
 nnoremap <F18> :w<cr> :!mongosh < %<cr>
