@@ -1,6 +1,8 @@
+format = "${custom}${directory}${git_branch}${git_state}${git_status}${python}${character}"
+
 # Inserts a blank line between shell prompts
 add_newline = false
-command_timeout = 1000
+command_timeout = 2000
 
 # Make prompt a single line instead of two lines
 [line_break]
@@ -11,6 +13,7 @@ disabled = true
 success_symbol = "[→](green)"		# The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[✗](red)"			# Any non-zero return is being set to "✗" with the color "bold red"
 vicmd_symbol = "[❯](blue)"			# Change the arrow "→" to a blue chevron "❯" when in vi mode
+# vicmd_visual_symbol = "[❮](yellow)"
 
 # Disable the package module, hiding it from the prompt completely
 # [package]
@@ -160,3 +163,59 @@ disabled = true
 
 [zig]
 disabled = true
+
+[custom.freebsd]
+symbol = "   "
+os = "freebsd"
+style = "red"
+when = true
+disabled = false
+
+[custom.openbsd]
+symbol = "   "
+os = "openbsd"
+style = "yellow"
+when = true
+disabled = false
+
+[custom.netbsd]
+symbol = " 🚩 "
+os = "netbsd"
+style = "202"
+when = true
+disabled = false
+
+[custom.arch]
+symbol = "   "
+os = "archlinux"
+style = "cyan"
+when = true
+disabled = false
+
+[custom.debian]
+symbol = "   "
+os = "debian"
+style = "red"
+when = true
+disabled = false
+
+[custom.gentoo]
+symbol = "   "
+os = "gentoo"
+style = "white"
+when = true
+disabled = false
+
+[custom.fedora]
+symbol = "   "
+os = "fedora"
+style = "blue"
+when = true
+disabled = false
+
+[custom.ubuntu]
+symbol = "   "
+os = "ubuntu"
+style = "202"
+when = true
+disabled = false
