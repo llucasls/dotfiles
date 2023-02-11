@@ -161,6 +161,11 @@ disabled = true
 [zig]
 disabled = true
 
+[os]
+format = "[($symbol )]($style)"
+style = "bold cyan"
+disabled = true
+
 [os.symbols]
 Alpine = " "
 Amazon = " "
