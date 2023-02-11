@@ -110,16 +110,17 @@ window:
 # Font configuration
 font:
   normal:
-    family: liberationmono
+    family: Literation Mono Nerd Font
+    # family: liberationmono
     style: Regular
   bold:
-    family: liberationmono
+    family: Literation Mono Nerd Font
     style: Bold
   italic:
-    family: liberationmono
+    family: Literation Mono Nerd Font
     style: Italic
   bold_italic:
-    family: liberationmono
+    family: Literation Mono Nerd Font
     style: Bold Italic
   size: 10
   offset:
