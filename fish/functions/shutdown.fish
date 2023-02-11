@@ -1,3 +1,3 @@
-function shutdown --wraps='doas halt -p' --description 'alias shutdown=doas halt -p'
+function shutdown --wraps='doas halt -p' --description 'shutdown the computer'
   doas halt -p $argv; 
 end

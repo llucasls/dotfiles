@@ -1,3 +1,3 @@
-function ls --wraps=exa --description 'alias ls exa'
+function ls --wraps=exa --description 'list directory contents'
   exa $argv; 
 end

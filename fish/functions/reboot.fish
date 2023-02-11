@@ -1,3 +1,3 @@
-function reboot --description 'alias reboot=doas reboot'
+function reboot --description 'reboot the computer'
   doas reboot $argv; 
 end
