@@ -1,5 +1,5 @@
 if status is-interactive
-  starship init fish | source
+  source (starship init fish --print-full-init | psub -f -s .data)
 
   function fish_greeting
   end
@@ -8,4 +8,5 @@ if status is-interactive
   set fish_cursor_insert line
   set fish_cursor_replace underscore
   set fish_cursor_replace_one underscore
+
 end
