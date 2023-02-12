@@ -190,7 +190,7 @@ symbol = "   "
 os = "linux"
 style = "cyan"
 shell = ["/bin/sh"]
-when = 'source /etc/os-release; test "${NAME}" = "Arch Linux"'
+when = 'source /etc/os-release; test "${ID}" = "arch"'
 disabled = false
 
 [custom.debian]
@@ -198,5 +198,5 @@ symbol = "   "
 os = "linux"
 style = "red"
 shell = ["/bin/sh"]
-when = 'source /etc/os-release; test "${NAME}" = "Debian GNU/Linux"'
+when = 'source /etc/os-release; test "${ID}" = "debian"'
 disabled = false
