@@ -24,7 +24,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
-nnoremap <S-F5> :w<cr> :!python %<cr>
+nnoremap <F17> :w<cr> :!python %<cr>
 nnoremap <F5> :w<cr> :!ts-node %<cr>
 nnoremap <F6> :w<cr> :!mysql --table < %<cr>
 nnoremap <S-F6> :w<cr> :!mongosh --quiet < %<cr>
