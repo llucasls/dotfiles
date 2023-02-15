@@ -167,14 +167,14 @@ disabled = true
 [custom.freebsd]
 symbol = "   "
 os = "freebsd"
-style = "red"
+style = "88"
 when = true
 disabled = false
 
 [custom.openbsd]
 symbol = "   "
 os = "openbsd"
-style = "yellow"
+style = "220"
 when = true
 disabled = false
 
@@ -188,7 +188,7 @@ disabled = false
 [custom.arch]
 symbol = "   "
 os = "linux"
-style = "cyan"
+style = "32"
 shell = ["/bin/sh"]
 when = 'source /etc/os-release; test "${ID}" = "arch"'
 disabled = false
@@ -196,7 +196,7 @@ disabled = false
 [custom.debian]
 symbol = "   "
 os = "linux"
-style = "red"
+style = "125"
 shell = ["/bin/sh"]
 when = 'source /etc/os-release; test "${ID}" = "debian"'
 disabled = false
