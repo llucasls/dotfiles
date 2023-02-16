@@ -9,12 +9,15 @@ command_timeout = 2000
 [line_break]
 disabled = true
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]							# The name of the module we are configuring is "character"
-success_symbol = "[→](green)"		# The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[✗](red)"			# Any non-zero return is being set to "✗" with the color "bold red"
-vicmd_symbol = "[❯](blue)"			# Change the arrow "→" to a blue chevron "❯" when in vi mode
-# vicmd_visual_symbol = "[❮](yellow)"
+[character]
+# success_symbol = "[→](green)"
+# error_symbol = "[✗](red)"
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❯](blue)"
+vimcmd_replace_one_symbol = "[❯](cyan)"
+vimcmd_replace_symbol = "[❯](bright-cyan)"
+vimcmd_visual_symbol = "[❯](yellow)"
 
 # Disable the package module, hiding it from the prompt completely
 # [package]
