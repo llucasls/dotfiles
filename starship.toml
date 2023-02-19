@@ -1,4 +1,4 @@
-format = "${os}${directory}${git_branch}${git_state}${git_status}${python}${jobs}${character}"
+format = "${custom}${directory}${git_branch}${git_state}${git_status}${python}${jobs}${character}"
 right_format = ""
 
 # Inserts a blank line between shell prompts
@@ -224,7 +224,7 @@ os = "linux"
 style = "bold 32"
 shell = ["/bin/sh"]
 when = 'source /etc/os-release; test "${ID}" = "arch"'
-disabled = true
+disabled = false
 
 [custom.debian]
 symbol = "   "
@@ -247,8 +247,7 @@ OpenBSD = "   "
 NetBSD = " 🚩 "
 
 [os]
-style = "bold 32"
-disabled = false
+disabled = true
 
 [hostname]
 format = "[$ssh_symbol$hostname]($style)"
