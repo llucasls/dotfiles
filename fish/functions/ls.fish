@@ -1,3 +1,3 @@
 function ls --wraps=exa --description 'list directory contents'
-  exa --icons $argv; 
+  exa --icons --group-directories-first $argv;
 end
