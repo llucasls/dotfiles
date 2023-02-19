@@ -2,7 +2,34 @@ if status is-interactive
   function fish_greeting
   end
 
+  function print_fish_icon
+    set -f fish_icon "  "
+
+    set -f green 32
+    set -f blue 34
+    set -f cyan 36
+    set -f white 37
+    set -f bright_green 92
+    set -f bright_blue 94
+    set -f bright_cyan 96
+    set -f bright_white 97
+
+    set -f colors $green $blue $cyan $white $bright_green $bright_blue $bright_cyan $bright_white
+    set -f style $(random choice $colors)
+
+    printf "$(string join '' '\x1b[1;' $style m $fish_icon '\x1b[0m')"
+  end
+
+  function print_tux_icon
+    printf "\x1b[1;7m▍ \x1b[0m"
+  end
+
   function starship_transient_prompt_func
+    if test "$(random 1 99)" -lt 15
+      set -f icon $(print_tux_icon)
+    else
+      set -f icon $(print_fish_icon)
+    end
     set -f prompt
     set -a prompt $(starship module shell | string trim)
     set -a prompt $(starship module directory | string trim)
@@ -28,4 +55,8 @@ if status is-interactive
   set fish_cursor_replace_one underscore
 
   set -xg LESS '-R~ --use-color -Dd+r$Du+B'
+
+  abbr --add git1 git log --pretty=oneline
+  abbr --add ggo git checkout
+  abbr --add clip xclip -selection clipboard
 end
