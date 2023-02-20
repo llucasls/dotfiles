@@ -1,6 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_clip:xclip\x20\x2dselection\x20clipboard
+SETUVAR _fish_abbr_ggo:git\x20checkout
+SETUVAR _fish_abbr_git1:git\x20log\x20\x2d\x2dpretty\x3doneline
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
