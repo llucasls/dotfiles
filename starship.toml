@@ -1,4 +1,5 @@
-format = "${custom}${directory}${git_branch}${git_state}${git_status}${python}${character}"
+format = "${custom}${directory}${git_branch}${git_state}${git_status}${python}${jobs}${character}"
+right_format = ""
 
 # Inserts a blank line between shell prompts
 add_newline = false
@@ -8,12 +9,15 @@ command_timeout = 2000
 [line_break]
 disabled = true
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]							# The name of the module we are configuring is "character"
-success_symbol = "[→](green)"		# The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[✗](red)"			# Any non-zero return is being set to "✗" with the color "bold red"
-vicmd_symbol = "[❯](blue)"			# Change the arrow "→" to a blue chevron "❯" when in vi mode
-# vicmd_visual_symbol = "[❮](yellow)"
+[character]
+# success_symbol = "[→](green)"
+# error_symbol = "[✗](red)"
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❯](blue)"
+vimcmd_replace_one_symbol = "[❯](cyan)"
+vimcmd_replace_symbol = "[❯](bright-cyan)"
+vimcmd_visual_symbol = "[❯](yellow)"
 
 # Disable the package module, hiding it from the prompt completely
 # [package]
@@ -27,12 +31,18 @@ style = "bold blue"
 format = "[$path]($style) [$read_only]($read_only_style)"
 disabled = false
 
+[time]
+format = '[$time]($style) '
+disabled = false
+
 [cmd_duration]
 min_time = 60000
 disabled = true
 
 [python]
+symbol = "   "
 disabled = false
+style = "bold yellow"
 format = '[(\($virtualenv\) )]($style)'
 
 [git_branch]
@@ -42,6 +52,9 @@ format = "[$symbol$branch]($style) "
 # for more information, visit: techviewleo.com/install-starship-shell-prompt-bash-zsh-fish/
 
 [c]
+symbol = "   "
+style = "bold 61"
+format = "[$symbol$version-$name]($style) "
 disabled = true
 
 [aws]
@@ -63,6 +76,9 @@ disabled = true
 disabled = true
 
 [docker_context]
+symbol = "   "
+style = "bold 45"
+format = "[$symbol$version]($style) "
 disabled = true
 
 [dotnet]
@@ -87,6 +103,8 @@ disabled = true
 disabled = true
 
 [java]
+symbol = "   "
+format = "[$symbol](bold 32)[$version](bold red) "
 disabled = true
 
 [julia]
@@ -99,6 +117,9 @@ disabled = true
 disabled = true
 
 [lua]
+symbol = "   "
+style = "bold 18"
+format = "[$symbol$version]($style) "
 disabled = true
 
 [nim]
@@ -108,6 +129,9 @@ disabled = true
 disabled = true
 
 [nodejs]
+symbol = "  "
+style = "bold 22"
+format = "[$symbol$version]($style) "
 disabled = true
 
 [ocaml]
@@ -132,12 +156,21 @@ disabled = true
 disabled = true
 
 [rlang]
+symbol = "   "
+style = "bold 25"
+format = "[$symbol$version]($style) "
 disabled = true
 
 [ruby]
+symbol = "   "
+style = "bold 124"
+format = "[$symbol$version]($style) "
 disabled = true
 
 [rust]
+symbol = "   "
+style = "bold 202"
+format = "[$symbol$version]($style) "
 disabled = true
 
 [scala]
@@ -167,55 +200,63 @@ disabled = true
 [custom.freebsd]
 symbol = "   "
 os = "freebsd"
-style = "red"
+style = "bold 88"
 when = true
 disabled = false
 
 [custom.openbsd]
 symbol = "   "
 os = "openbsd"
-style = "yellow"
+style = "bold 220"
 when = true
 disabled = false
 
 [custom.netbsd]
 symbol = " 🚩 "
 os = "netbsd"
-style = "202"
+style = "bold 202"
 when = true
 disabled = false
 
 [custom.arch]
 symbol = "   "
-os = "archlinux"
-style = "cyan"
-when = true
+os = "linux"
+style = "bold 32"
+shell = ["/bin/sh"]
+when = 'source /etc/os-release; test "${ID}" = "arch"'
 disabled = false
 
 [custom.debian]
 symbol = "   "
-os = "debian"
-style = "red"
-when = true
+os = "linux"
+style = "bold 125"
+shell = ["/bin/sh"]
+when = 'source /etc/os-release; test "${ID}" = "debian"'
 disabled = false
 
-[custom.gentoo]
-symbol = "   "
-os = "gentoo"
-style = "white"
-when = true
+[shell]
+bash_indicator = "  "
+fish_indicator = "  "
 disabled = false
 
-[custom.fedora]
-symbol = "   "
-os = "fedora"
-style = "blue"
-when = true
+[os.symbols]
+Arch = "   "
+Debian = "   "
+FreeBSD = "   "
+OpenBSD = "   "
+NetBSD = " 🚩 "
+
+[os]
+disabled = true
+
+[hostname]
+format = "[$ssh_symbol$hostname]($style)"
+style = "dimmed"
+ssh_only = false
 disabled = false
 
-[custom.ubuntu]
-symbol = "   "
-os = "ubuntu"
-style = "202"
-when = true
+[localip]
+format = "[$localipv4]($style)"
+style = "dimmed cyan"
+ssh_only = false
 disabled = false
