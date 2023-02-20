@@ -23,7 +23,6 @@ if status is-interactive
   function starship_transient_prompt_func
     set -f prompt
     set -a prompt $(print_fish_icon | string trim)
-    set -a prompt $(starship module shell | string trim)
     set -a prompt $(starship module directory | string trim)
     set -a prompt $(starship module git_branch | string trim)
     set -a prompt $(starship module git_state | string trim)
