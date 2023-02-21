@@ -20,18 +20,9 @@ if status is-interactive
     printf "$(string join '' '\x1b[1;' $style m $fish_icon '\x1b[0m')"
   end
 
-  function print_tux_icon
-    printf "\x1b[1;7m▍ \x1b[0m"
-  end
-
   function starship_transient_prompt_func
-    if test "$(random 1 99)" -lt 15
-      set -f icon $(print_tux_icon)
-    else
-      set -f icon $(print_fish_icon)
-    end
     set -f prompt
-    set -a prompt $(starship module shell | string trim)
+    set -a prompt $(print_fish_icon | string trim)
     set -a prompt $(starship module directory | string trim)
     set -a prompt $(starship module git_branch | string trim)
     set -a prompt $(starship module git_state | string trim)
