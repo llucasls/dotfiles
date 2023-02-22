@@ -17,6 +17,7 @@ Plug 'diepm/vim-rest-console'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/info.vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
