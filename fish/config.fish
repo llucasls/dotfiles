@@ -47,7 +47,8 @@ if status is-interactive
 
   set -xg LESS '-R~ --use-color -Dd+r$Du+B'
 
-  abbr --add git1 git log --pretty=oneline
+  abbr --add git1 git log --oneline
+  abbr --add gitl "git log --pretty=\"- %h [ %ai ] %s\" | cut -d ' ' -f -4,7- | sed 's/\[\s/[/1' | sed 's/\s\]/]/1' | less"
   abbr --add ggo git checkout
   abbr --add clip xclip -selection clipboard
 end
