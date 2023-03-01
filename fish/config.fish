@@ -34,6 +34,7 @@ if status is-interactive
   end
 
   function starship_transient_rprompt_func
+    show-clock-icon -c yellow
     starship module time
   end
 
