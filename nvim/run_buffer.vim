@@ -30,4 +30,4 @@ function! RunBuffer()
 endfunction
 
 " Map a key to run the current buffer
-nnoremap <F6> :w<CR>:call RunBuffer()<CR>
+nnoremap <F5> :w<CR>:call RunBuffer()<CR>
