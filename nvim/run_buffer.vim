@@ -8,6 +8,7 @@ function! RunBuffer()
     \ 'python': 'python',
     \ 'javascript': 'node',
     \ 'typescript': 'ts-node',
+    \ 'sql': 'mysql --table <',
     \ }
 
   if interpreter != '' && interpreter != first_line
