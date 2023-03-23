@@ -1,12 +1,15 @@
 if status is-interactive
+  set -gx XDG_CONFIG_HOME $HOME/.config
+  set -l wd $XDG_CONFIG_HOME/fish
+
   function fish_greeting
   end
 
   function print_fish_icon
-    set -f fish_icon "   "
+    set -l fish_icon "   "
 
-    set -f colors green blue cyan white brgreen brblue brcyan brwhite
-    set -f style $(random choice $colors)
+    set -l colors green blue cyan white brgreen brblue brcyan brwhite
+    set -l style (random choice $colors)
 
     set_color -o $style
     printf $fish_icon
@@ -14,9 +17,9 @@ if status is-interactive
   end
 
   function print_clock_icon
-    set -f prompt
-    set -a prompt $(show-clock-icon -c yellow)
-    set -a prompt $(date +%H:%M)
+    set -l prompt
+    set -a prompt (show-clock-icon -c yellow)
+    set -a prompt (date +%H:%M)
     set -a prompt ''
 
     echo $prompt
@@ -43,7 +46,6 @@ if status is-interactive
   function fish_posteriori_right_prompt
   end
 
-  set -l wd $(status dirname)
   source $wd/starship.fish
 
   function repaint_and_execute
