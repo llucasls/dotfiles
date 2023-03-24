@@ -1,4 +1,4 @@
-format = "${custom}${directory}${git_branch}${git_state}${git_status}${python}${jobs} ${character}"
+format = "${os}${directory}${git_branch}${git_state}${git_status}${python}${jobs} ${character}"
 right_format = ""
 
 # Inserts a blank line between shell prompts
@@ -257,7 +257,8 @@ OpenBSD = "   "
 NetBSD = " 🚩 "
 
 [os]
-disabled = true
+style = "bold 125"
+disabled = false
 
 [hostname]
 format = "[$ssh_symbol$hostname]($style)"
