@@ -92,7 +92,7 @@ if status is-interactive
   set fish_cursor_replace underscore
   set fish_cursor_replace_one underscore
 
-  set -xg LESS '-R~ --use-color -Dd+r$Du+B'
+  set -xg LESS '-R~'
 
   abbr --add git1 git log --oneline
   abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
