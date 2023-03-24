@@ -4,6 +4,7 @@ let s:interpreter_dict = {
   \ 'javascript': 'node',
   \ 'typescript': 'ts-node',
   \ 'sql': 'mysql --table <',
+  \ 'mongodb': 'mongosh --quiet <',
   \ 'sh': 'sh',
   \ 'fish': 'fish',
   \ }
@@ -34,4 +35,4 @@ function! RunBuffer()
 endfunction
 
 " Map a key to run the current buffer
-nnoremap <F5> :w<CR>:call RunBuffer()<CR>
+nnoremap <leader><leader> :w<cr>:call RunBuffer()<cr>
