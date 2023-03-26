@@ -7,5 +7,5 @@ function check --wraps=ls --description 'list most recently modified files'
     set -f color never
   end
 
-  command ls -lAtr -hog --color=$color $argv | tail -n $(math $LINES - 2)
+  command ls -trAgo -ch --color=$color $argv | tail -n $(math $LINES - 2)
 end
