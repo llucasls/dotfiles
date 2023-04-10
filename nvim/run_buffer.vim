@@ -2,11 +2,13 @@ let s:interpreter_dict = {
   \ 'vim': 'vim',
   \ 'python': 'python',
   \ 'javascript': 'node',
+  \ 'java': 'java',
   \ 'typescript': 'ts-node',
   \ 'sql': 'mysql --table <',
   \ 'mongodb': 'mongosh --quiet <',
   \ 'sh': 'sh',
   \ 'fish': 'fish',
+  \ 'make': 'make -f'
   \ }
 
 " Define a function to execute the current buffer
