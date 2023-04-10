@@ -34,7 +34,7 @@ nnoremap <F8> :e term://pulsemixer<cr>
 nnoremap <F9> :w<cr> :!coffee -bp %<cr>
 nnoremap <leader>m :w<cr> :!mongosh --quiet < %<cr>
 " Select all the current file's content
-nnoremap <C-y> :%y+<cr>
+nnoremap <leader>y :%yank+<cr>
 
 nnoremap <leader>s :%substitute//g<left><left>
 
