@@ -36,6 +36,8 @@ nnoremap <leader>m :w<cr> :!mongosh --quiet < %<cr>
 " Select all the current file's content
 nnoremap <C-y> :%y+<cr>
 
+nnoremap <leader>s :%substitute//g<left><left>
+
 let g:vrc_horizontal_split=1
 
 filetype on
