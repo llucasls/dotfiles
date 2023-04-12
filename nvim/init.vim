@@ -20,18 +20,23 @@ Plug 'vim-scripts/info.vim'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+let g:mapleader = ","
+
 source /home/lucas/.config/nvim/run_buffer.vim
+source /home/lucas/.config/nvim/search.vim
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
-nnoremap <F6> :w<cr> :!mysql --table < %<cr>
-nnoremap <S-F6> :w<cr> :!mongosh --quiet < %<cr>
 nnoremap <F8> :e term://pulsemixer<cr>
 nnoremap <F9> :w<cr> :!coffee -bp %<cr>
-nnoremap <C-y> :%y+<cr>
+nnoremap <leader>m :w<cr> :!mongosh --quiet < %<cr>
+" Select all the current file's content
+nnoremap <leader>y :%yank+<cr>
+
+nnoremap <leader>s :%substitute//g<left><left>
 
 let g:vrc_horizontal_split=1
 
