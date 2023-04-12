@@ -2,10 +2,13 @@ let s:interpreter_dict = {
   \ 'vim': 'vim',
   \ 'python': 'python',
   \ 'javascript': 'node',
+  \ 'java': 'java',
   \ 'typescript': 'ts-node',
   \ 'sql': 'mysql --table <',
+  \ 'mongodb': 'mongosh --quiet <',
   \ 'sh': 'sh',
   \ 'fish': 'fish',
+  \ 'make': 'make -f'
   \ }
 
 " Define a function to execute the current buffer
@@ -34,4 +37,4 @@ function! RunBuffer()
 endfunction
 
 " Map a key to run the current buffer
-nnoremap <F5> :w<CR>:call RunBuffer()<CR>
+nnoremap <leader><leader> :w<cr>:call RunBuffer()<cr>
