@@ -8,6 +8,8 @@ let s:interpreter_dict = {
   \ 'mongodb': 'mongosh --quiet <',
   \ 'sh': 'sh',
   \ 'fish': 'fish',
+  \ 'plaintex': 'lualatex',
+  \ 'tex': 'lualatex',
   \ 'make': 'make -f'
   \ }
 
