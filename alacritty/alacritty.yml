@@ -681,8 +681,8 @@ key_bindings:
   - { key: PageDown,    mods: Alt,                    action: ScrollHalfPageDown, }
   - { key: PageUp,      mods: Control,                action: ScrollPageUp,       }
   - { key: PageDown,    mods: Control,                action: ScrollPageDown,     }
-  - { key: Home,        mods: Control,                action: ScrollToTop,        }
-  - { key: End,         mods: Control,                action: ScrollToBottom,     }
+  - { key: G,           mods: Control,                action: ScrollToTop,        }
+  - { key: G,           mods: Shift|Control,          action: ScrollToBottom,     }
   - { key: Key0,        mods: Control,                action: ResetFontSize       }
   - { key: Equals,      mods: Control,                action: IncreaseFontSize    }
   - { key: Minus,       mods: Control,                action: DecreaseFontSize    }
