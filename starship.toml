@@ -49,6 +49,7 @@ disabled = false
 
 [git_branch]
 disabled = false
+style = "bold #f44d27"
 format = " [$symbol$branch]($style)"
 
 [git_state]
