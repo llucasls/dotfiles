@@ -51,9 +51,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 4
+    y: 4
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -674,16 +674,15 @@ key_bindings:
   - { key: F11,                                       action: ToggleFullscreen,   }
   - { key: C,           mods: Shift|Control,          action: Copy,               }
   - { key: V,           mods: Shift|Control,          action: Paste,              }
-  - { key: L,           mods: Control,                action: ClearLogNotice,     }
   - { key: L,           mods: Shift|Control,          action: ClearHistory,       }
-  - { key: Up,          mods: Control,                action: ScrollLineUp,       }
-  - { key: Down,        mods: Control,                action: ScrollLineDown,     }
+  - { key: K,           mods: Control,                action: ScrollLineUp,       }
+  - { key: J,           mods: Control,                action: ScrollLineDown,     }
   - { key: PageUp,      mods: Alt,                    action: ScrollHalfPageUp,   }
   - { key: PageDown,    mods: Alt,                    action: ScrollHalfPageDown, }
   - { key: PageUp,      mods: Control,                action: ScrollPageUp,       }
   - { key: PageDown,    mods: Control,                action: ScrollPageDown,     }
-  - { key: Home,        mods: Control,                action: ScrollToTop,        }
-  - { key: End,         mods: Control,                action: ScrollToBottom,     }
+  - { key: G,           mods: Control,                action: ScrollToTop,        }
+  - { key: G,           mods: Shift|Control,          action: ScrollToBottom,     }
   - { key: Key0,        mods: Control,                action: ResetFontSize       }
   - { key: Equals,      mods: Control,                action: IncreaseFontSize    }
   - { key: Minus,       mods: Control,                action: DecreaseFontSize    }
