@@ -98,4 +98,6 @@ if status is-interactive
   abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
   abbr --add ggo git checkout
   abbr --add clip xclip -selection clipboard
+
+  bind --mode replace \cl 'clear'
 end
