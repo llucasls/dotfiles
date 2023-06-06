@@ -3,11 +3,13 @@ let s:interpreter_dict = {
   \ 'python': 'python',
   \ 'javascript': 'node',
   \ 'java': 'java',
+  \ 'coffee': 'coffee',
   \ 'typescript': 'ts-node',
   \ 'sql': 'mysql --table <',
   \ 'mongodb': 'mongosh --quiet <',
   \ 'sh': 'sh',
   \ 'fish': 'fish',
+  \ 'r': 'Rscript',
   \ 'plaintex': 'lualatex',
   \ 'tex': 'lualatex',
   \ 'make': 'make -f'
