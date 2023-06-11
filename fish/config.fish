@@ -9,13 +9,19 @@ if status is-interactive
     set -f style $(random choice $colors)
 
     set_color -o $style
-    printf $fish_icon
+    if test $TERM = linux
+      printf '> '
+    else
+      printf $fish_icon
+    end
     set_color reset
   end
 
   function print_clock_icon
     set -f prompt
-    set -a prompt $(show-clock-icon -c yellow)
+    if test $TERM != linux
+      set -a prompt $(show-clock-icon -c yellow)
+    end
     set -a prompt $(date +%H:%M)
     set -a prompt ''
 
@@ -98,4 +104,16 @@ if status is-interactive
   abbr --add clip xclip -selection clipboard
 
   bind --mode replace \cl 'clear'
+end
+
+if status is-login
+  if test -d $HOME/.bin
+    set -pgx PATH $HOME/.bin
+  end
+
+  if test -d $HOME/.local/bin
+    set -pgx PATH $HOME/.local/bin
+  end
+
+  update-clock &
 end
