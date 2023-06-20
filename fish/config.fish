@@ -3,7 +3,7 @@ if status is-interactive
   end
 
   function print_fish_icon
-    set -f fish_icon "   "
+    set -f fish_icon " 󰈺  "
 
     set -f colors green blue cyan white brgreen brblue brcyan brwhite
     set -f style $(random choice $colors)
@@ -107,6 +107,14 @@ if status is-interactive
 end
 
 if status is-login
+  if test -d $HOME/.games
+    set -pgx PATH $HOME/.games
+  end
+
+  if test -d $HOME/.cargo/bin
+    set -pgx PATH $HOME/.cargo/bin
+  end
+
   if test -d $HOME/.bin
     set -pgx PATH $HOME/.bin
   end
@@ -115,5 +123,18 @@ if status is-login
     set -pgx PATH $HOME/.local/bin
   end
 
-  update-clock &
+  if test -x "/usr/bin/nvim"
+    set -gx EDITOR nvim
+  else if test -x "/usr/bin/vim"
+    set -gx EDITOR vim
+  end
+
+  set -gx XDG_CONFIG_HOME $HOME/.config
+  set -gx XDG_DATA_HOME $HOME/.local/share
+  set -gx XDG_STATE_HOME $HOME/.local/state
+  set -gx XDG_CACHE_HOME $HOME/.cache
+  set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
+
+  dwm-status-bar &
+  amixer -c 0 -- sset Master unmute playback 100%
 end
