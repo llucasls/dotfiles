@@ -234,7 +234,15 @@ symbol = "   "
 os = "linux"
 style = "bold 32"
 shell = ["/bin/sh"]
-when = 'source /etc/os-release; test "${ID}" = "arch"'
+when = '. /etc/os-release; test "${ID}" = "arch"'
+disabled = false
+
+[custom.artix]
+symbol = "   "
+os = "linux"
+style = "bold 32"
+shell = ["/bin/sh"]
+when = '. /etc/os-release; test "${ID}" = "artix"'
 disabled = false
 
 [custom.debian]
@@ -242,7 +250,7 @@ symbol = "   "
 os = "linux"
 style = "bold 125"
 shell = ["/bin/sh"]
-when = 'source /etc/os-release; test "${ID}" = "debian"'
+when = '. /etc/os-release; test "${ID}" = "debian"'
 disabled = false
 
 [shell]
