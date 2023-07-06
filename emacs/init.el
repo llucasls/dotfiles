@@ -26,3 +26,6 @@
 
 (add-to-list 'default-frame-alist
 	     '(font . "Liberation Mono-11"))
+
+(line-number-mode 1)
+(column-number-mode 1)
