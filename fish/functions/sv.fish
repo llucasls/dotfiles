@@ -23,6 +23,18 @@ function _sv
   command sv $argv
 end
 
+function _sv_list
+  set -f SVDIR $XDG_RUNTIME_DIR/service
+
+  if test ! -d $SVDIR
+    mkdir -p $SVDIR
+  end
+
+  for service in (ls $SVDIR)
+    sv status $service
+  end
+end
+
 function sv --description 'control and manage services monitored by runsv(8)'
   argparse v w= -- $argv
 
@@ -48,6 +60,8 @@ function sv --description 'control and manage services monitored by runsv(8)'
     for service in $services
       _sv_disable $service
     end
+  else if test $command = list
+    _sv_list
   else
     _sv $v $w $argv
   end
