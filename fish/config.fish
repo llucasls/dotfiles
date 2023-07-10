@@ -28,12 +28,42 @@ if status is-interactive
     echo $prompt
   end
 
+  function print_prompt_char
+    set -f ok $argv[1]
+
+    switch $fish_bind_mode
+      case default
+        set_color blue
+      case insert
+        if test $ok -eq 0
+          set_color green
+        else
+          set_color red
+      end
+      case replace_one
+        set_color cyan
+      case replace
+        set_color cyan
+      case visual
+        set_color yellow
+      case '*'
+        set_color magenta
+    end
+
+    printf '>'
+    set_color normal
+  end
+
   function fish_priori_prompt
-    starship prompt \
-      --status=$STARSHIP_CMD_STATUS \
-      --pipestatus="$STARSHIP_CMD_PIPESTATUS" \
-      --jobs=$STARSHIP_JOBS \
-      --keymap $fish_bind_mode
+    if test $TERM = linux
+      printf '%s %s ' $(prompt_pwd) $(print_prompt_char $STARSHIP_CMD_STATUS)
+    else
+      starship prompt \
+        --status=$STARSHIP_CMD_STATUS \
+        --pipestatus=$STARSHIP_CMD_PIPESTATUS \
+        --jobs=$STARSHIP_JOBS \
+        --keymap $fish_bind_mode
+    end
   end
 
   function fish_posteriori_prompt
@@ -99,9 +129,12 @@ if status is-interactive
   set -xg LESS '-R~ --use-color -Dd+r$Du+B'
 
   abbr --add git1 git log --oneline
-  abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
+  #abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
+  abbr --add gitl 'git log --pretty="%h %ai %s" | format-nocolor | less -F'
   abbr --add ggo git checkout
   abbr --add clip xclip -selection clipboard
+  abbr --add egui emacsclient --create-frame
+  abbr --add etty emacsclient --tty
 
   bind --mode replace \cl 'clear'
 end
@@ -123,11 +156,12 @@ if status is-login
     set -pgx PATH $HOME/.local/bin
   end
 
-  if test -x "/usr/bin/nvim"
-    set -gx EDITOR nvim
-  else if test -x "/usr/bin/vim"
-    set -gx EDITOR vim
-  end
+  #if test -x "/usr/bin/nvim"
+  #  set -gx EDITOR nvim
+  #else if test -x "/usr/bin/vim"
+  #  set -gx EDITOR vim
+  #end
+  set -gx EDITOR emacsclient
 
   set -gx XDG_CONFIG_HOME $HOME/.config
   set -gx XDG_DATA_HOME $HOME/.local/share
@@ -135,6 +169,15 @@ if status is-login
   set -gx XDG_CACHE_HOME $HOME/.cache
   set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
 
-  dwm-status-bar &
-  amixer -c 0 -- sset Master unmute playback 100%
+  update-clock 2023-06-28 12:00:00
+  sleep 0.1
+  update-clock
+
+  amixer -c 0 -- sset Master unmute playback 100% > /dev/null
+
+  set -x WALLPAPER $WALLPAPER
+  if test $(tty) = /dev/tty2
+    set -gx FISH_PID $fish_pid
+    startx &> /dev/null
+  end
 end
