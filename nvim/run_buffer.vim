@@ -8,6 +8,7 @@ let s:interpreter_dict = {
   \ 'mongodb': 'mongosh --quiet <',
   \ 'sh': 'sh',
   \ 'fish': 'fish',
+  \ 'c': 'exec-c',
   \ 'make': 'make -f'
   \ }
 
