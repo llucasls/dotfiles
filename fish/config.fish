@@ -1,36 +1,69 @@
 if status is-interactive
-  set -gx XDG_CONFIG_HOME $HOME/.config
-  set -l wd $XDG_CONFIG_HOME/fish
-
   function fish_greeting
   end
 
   function print_fish_icon
-    set -l fish_icon "   "
+    set -f fish_icon " 󰈺  "
 
-    set -l colors green blue cyan white brgreen brblue brcyan brwhite
-    set -l style (random choice $colors)
+    set -f colors green blue cyan white brgreen brblue brcyan brwhite
+    set -f style $(random choice $colors)
 
     set_color -o $style
-    printf $fish_icon
+    if test $TERM = linux
+      printf '> '
+    else
+      printf $fish_icon
+    end
     set_color reset
   end
 
   function print_clock_icon
-    set -l prompt
-    set -a prompt (show-clock-icon -c yellow)
-    set -a prompt (date +%H:%M)
+    set -f prompt
+    if test $TERM != linux
+      set -a prompt $(show-clock-icon -c yellow)
+    end
+    set -a prompt $(date +%H:%M)
     set -a prompt ''
 
     echo $prompt
   end
 
+  function print_prompt_char
+    set -f ok $argv[1]
+
+    switch $fish_bind_mode
+      case default
+        set_color blue
+      case insert
+        if test $ok -eq 0
+          set_color green
+        else
+          set_color red
+      end
+      case replace_one
+        set_color cyan
+      case replace
+        set_color cyan
+      case visual
+        set_color yellow
+      case '*'
+        set_color magenta
+    end
+
+    printf '>'
+    set_color normal
+  end
+
   function fish_priori_prompt
-    starship prompt \
-      --status=$STARSHIP_CMD_STATUS \
-      --pipestatus="$STARSHIP_CMD_PIPESTATUS" \
-      --jobs=$STARSHIP_JOBS \
-      --keymap $fish_bind_mode
+    if test $TERM = linux
+      printf '%s %s ' $(prompt_pwd) $(print_prompt_char $STARSHIP_CMD_STATUS)
+    else
+      starship prompt \
+        --status=$STARSHIP_CMD_STATUS \
+        --pipestatus=$STARSHIP_CMD_PIPESTATUS \
+        --jobs=$STARSHIP_JOBS \
+        --keymap $fish_bind_mode
+    end
   end
 
   function fish_posteriori_prompt
@@ -46,6 +79,7 @@ if status is-interactive
   function fish_posteriori_right_prompt
   end
 
+  set -l wd $(status dirname)
   source $wd/starship.fish
 
   function repaint_and_execute
@@ -95,9 +129,48 @@ if status is-interactive
   set -xg LESS '-R~'
 
   abbr --add git1 git log --oneline
-  abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
+  #abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
+  abbr --add gitl 'git log --pretty="%h %ai %s" | format-nocolor | less -F'
   abbr --add ggo git checkout
   abbr --add clip xclip -selection clipboard
+  abbr --add egui emacsclient --create-frame
+  abbr --add etty emacsclient --tty
 
   bind --mode replace \cl 'clear'
+end
+
+if status is-login
+  if test -d $HOME/.games
+    set -pgx PATH $HOME/.games
+  end
+
+  if test -d $HOME/.cargo/bin
+    set -pgx PATH $HOME/.cargo/bin
+  end
+
+  if test -d $HOME/.bin
+    set -pgx PATH $HOME/.bin
+  end
+
+  if test -d $HOME/.local/bin
+    set -pgx PATH $HOME/.local/bin
+  end
+
+  if test -x "/usr/bin/nvim"
+    set -gx EDITOR nvim
+  else if test -x "/usr/bin/vim"
+    set -gx EDITOR vim
+  end
+
+  set -gx XDG_CONFIG_HOME $HOME/.config
+  set -gx XDG_DATA_HOME $HOME/.local/share
+  set -gx XDG_STATE_HOME $HOME/.local/state
+  set -gx XDG_CACHE_HOME $HOME/.cache
+  set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
+
+  set -x WALLPAPER $WALLPAPER
+  if test $(tty) = /dev/tty1
+    set -gx FISH_PID $fish_pid
+    startx &> /dev/null
+  end
 end
