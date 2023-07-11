@@ -169,13 +169,8 @@ if status is-login
   set -gx XDG_CACHE_HOME $HOME/.cache
   set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
 
-  update-clock 2023-06-28 12:00:00
-  sleep 0.1
-  update-clock
-
   amixer -c 0 -- sset Master unmute playback 100% > /dev/null
 
-  set -x WALLPAPER $WALLPAPER
   if test $(tty) = /dev/tty2
     set -gx FISH_PID $fish_pid
     startx &> /dev/null
