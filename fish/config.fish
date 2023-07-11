@@ -168,7 +168,8 @@ if status is-login
   set -gx XDG_CACHE_HOME $HOME/.cache
   set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
 
-  set -x WALLPAPER $WALLPAPER
+  set -gx STATUS_BAR_NOTIFY false
+
   if test $(tty) = /dev/tty1
     set -gx FISH_PID $fish_pid
     startx &> /dev/null
