@@ -1,6 +1,6 @@
 let s:interpreter_dict = {
   \ 'vim': 'vim',
-  \ 'python': 'python',
+  \ 'python': 'python3',
   \ 'javascript': 'node',
   \ 'java': 'java',
   \ 'coffee': 'coffee',
@@ -12,6 +12,7 @@ let s:interpreter_dict = {
   \ 'r': 'Rscript',
   \ 'plaintex': 'lualatex',
   \ 'tex': 'lualatex',
+  \ 'c': 'exec-c',
   \ 'make': 'make -f'
   \ }
 
