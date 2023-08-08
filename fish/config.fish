@@ -133,7 +133,8 @@ if status is-interactive
   abbr --add gitl 'git log --pretty="%h %ai %s" | format-nocolor | less -F'
   abbr --add ggo git checkout
   abbr --add clip xclip -selection clipboard
-  abbr --add --set-cursor=@ egui begin\nemacsclient --reuse-frame @ \> /dev/null 2\>&1 \&\ndisown\nend
+  abbr --add --set-cursor=@ egui \
+    begin\nemacsclient --reuse-frame @ \> /dev/null 2\>&1 \&\ndisown\nend
   abbr --add etty emacsclient --tty
 
   bind --mode replace \cl 'clear'
