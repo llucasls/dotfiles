@@ -3,6 +3,16 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
+(package-refresh-contents)
+
+;; Download Evil
+(unless (package-installed-p 'evil)
+  (package-install 'evil))
+
+;; Enable Evil
+(require 'evil)
+(evil-mode 1)
+
 (setq inhibit-startup-screen nil)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
