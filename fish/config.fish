@@ -136,6 +136,16 @@ if status is-interactive
   abbr --add --set-cursor=@ egui \
     begin\nemacsclient --reuse-frame @ \> /dev/null 2\>&1 \&\ndisown\nend
   abbr --add etty emacsclient --tty
+  begin
+    set -l r
+    if type r &> /dev/null
+      set r r
+    else
+      set r Rscript
+    end
+
+    abbr --add --set-cursor=@ mat $r -e \''cat(@, fill = TRUE)'\'
+  end
 
   bind --mode replace \cl 'clear'
 end
