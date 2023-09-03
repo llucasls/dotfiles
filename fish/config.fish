@@ -141,22 +141,6 @@ if status is-interactive
 end
 
 if status is-login
-  if test -d $HOME/.games
-    set -pgx PATH $HOME/.games
-  end
-
-  if test -d $HOME/.cargo/bin
-    set -pgx PATH $HOME/.cargo/bin
-  end
-
-  if test -d $HOME/.bin
-    set -pgx PATH $HOME/.bin
-  end
-
-  if test -d $HOME/.local/bin
-    set -pgx PATH $HOME/.local/bin
-  end
-
   #if test -x "/usr/bin/nvim"
   #  set -gx EDITOR nvim
   #else if test -x "/usr/bin/vim"
