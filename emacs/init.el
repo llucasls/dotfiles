@@ -1,4 +1,10 @@
-(load "~/.config/emacs/melpa-packages")
+(defun load-module (relative-path)
+  "Load an Elisp module by specifying its path relative to the current script's parent directory."
+  (let* ((script-directory (file-name-directory load-file-name))
+         (absolute-path (expand-file-name relative-path script-directory)))
+    (load absolute-path)))
+
+(load-module "melpa-packages")
 
 (setq inhibit-startup-screen nil)
 (custom-set-variables
