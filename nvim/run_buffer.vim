@@ -1,5 +1,6 @@
 let s:interpreter_dict = {
   \ 'vim': 'vim',
+  \ 'lisp': 'emacs --script',
   \ 'python': 'python3',
   \ 'javascript': 'node',
   \ 'java': 'java',
