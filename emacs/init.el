@@ -4,7 +4,7 @@
          (absolute-path (expand-file-name relative-path script-directory)))
     (load absolute-path)))
 
-(load-module "melpa-packages")
+(load-module "conf.d/melpa-packages")
 
 (setq inhibit-startup-screen nil)
 (custom-set-variables
