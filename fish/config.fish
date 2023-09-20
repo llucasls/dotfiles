@@ -1,7 +1,4 @@
 if status is-interactive
-  function fish_greeting
-  end
-
   function print_fish_icon
     set -f fish_icon " 󰈺  "
 
@@ -126,48 +123,5 @@ if status is-interactive
   set fish_cursor_replace underscore
   set fish_cursor_replace_one underscore
 
-  set -xg LESS '-R~ --use-color -Dd+r$Du+B'
-
-  abbr --add git1 git log --oneline
-  #abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
-  abbr --add gitl 'git log --pretty="%h %ai %s" | format-nocolor | less -F'
-  abbr --add ggo git checkout
-  abbr --add clip xclip -selection clipboard
-  abbr --add --set-cursor=@ egui \
-    begin\nemacsclient --reuse-frame @ \> /dev/null 2\>&1 \&\ndisown\nend
-  abbr --add etty emacsclient --tty
-  begin
-    set -l r
-    if type r &> /dev/null
-      set r r
-    else
-      set r Rscript
-    end
-
-    abbr --add --set-cursor=@ mat $r -e \''cat(@, fill = TRUE)'\'
-  end
-
   bind --mode replace \cl 'clear'
-end
-
-if status is-login
-  #if test -x "/usr/bin/nvim"
-  #  set -gx EDITOR nvim
-  #else if test -x "/usr/bin/vim"
-  #  set -gx EDITOR vim
-  #end
-  set -gx EDITOR emacsclient
-
-  set -gx XDG_CONFIG_HOME $HOME/.config
-  set -gx XDG_DATA_HOME $HOME/.local/share
-  set -gx XDG_STATE_HOME $HOME/.local/state
-  set -gx XDG_CACHE_HOME $HOME/.cache
-  set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
-
-  amixer -c 0 -- sset Master unmute playback 100% > /dev/null
-
-  if test $(tty) = /dev/tty2
-    set -gx FISH_PID $fish_pid
-    startx &> /dev/null
-  end
 end
