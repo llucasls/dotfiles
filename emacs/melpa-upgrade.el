@@ -1,4 +1,4 @@
-#!/usr/bin/env emacs --script
+#!/usr/bin/emacs -x
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-upgrade-all)
