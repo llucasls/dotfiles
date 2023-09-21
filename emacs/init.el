@@ -23,3 +23,5 @@
 
 (line-number-mode 1)
 (column-number-mode 1)
+(global-auto-revert-mode 1)
+(recentf-mode 1)
