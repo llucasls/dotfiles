@@ -5,6 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tango-dark))
  '(display-line-numbers 'relative)
+ '(evil-want-C-d-scroll t)
+ '(evil-want-C-u-scroll t)
  '(scroll-down-aggressively 0.0)
  '(scroll-up-aggressively 0.0))
 (custom-set-faces
