@@ -1,24 +1,18 @@
-;; Enable package archives
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
+(defun load-module (relative-path)
+  "Load an Elisp module by specifying its path relative to the current script's
+  parent directory."
+  (let* ((script-directory (file-name-directory load-file-name))
+         (absolute-path (expand-file-name relative-path script-directory)))
+    (load absolute-path)))
+
+(load-module "conf.d/melpa-packages")
+
+(setq custom-file (locate-user-emacs-file "conf.d/custom-vars.el"))
+(load custom-file 'noerror 'nomessage)
 
 (setq inhibit-startup-screen nil)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(tango-dark))
- '(package-selected-packages '(editorconfig)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
-(editorconfig-mode 1)
+(setq scroll-margin 14)
 
 (setq-default show-trailing-whitespace t) ;; Show trailing whitespace
 (setq-default whitespace-style '(face tabs tab-mark trailing lines-tail)) ;; Display tab characters
@@ -29,3 +23,5 @@
 
 (line-number-mode 1)
 (column-number-mode 1)
+(global-auto-revert-mode 1)
+(recentf-mode 1)
