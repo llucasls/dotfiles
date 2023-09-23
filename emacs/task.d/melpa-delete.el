@@ -1,4 +1,4 @@
-#!/usr/bin/emacs -x
+#!/usr/bin/env -S emacs -x
 (require 'package)
 (package-activate-all)
 
