@@ -6,9 +6,9 @@
     (load absolute-path)))
 
 (load-module "conf.d/melpa-packages")
-(load-module "conf.d/keybindings.el")
+(load-module "conf.d/keybindings")
 
-(setq custom-file (locate-user-emacs-file "conf.d/custom-vars.el"))
+(setq custom-file (locate-user-emacs-file "conf.d/custom-vars"))
 (load custom-file 'noerror 'nomessage)
 
 (setq inhibit-startup-screen nil)
