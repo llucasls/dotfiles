@@ -6,10 +6,6 @@ ELN_FILES := $(ELISP_FILES:%.el=%.eln)
 CLIENT = emacsclient --alternate-editor=false
 
 all: byte-code
-#	if $$(task.d/native-is-available.el); \
-#		then $(MAKE) --no-print-directory native; \
-#		else $(MAKE) --no-print-directory byte-code; \
-#	fi
 
 byte-code: $(ELC_FILES)
 
