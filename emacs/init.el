@@ -15,11 +15,10 @@
 (setq scroll-margin 14)
 
 (setq-default show-trailing-whitespace t) ;; Show trailing whitespace
-(setq-default whitespace-style '(face tabs tab-mark trailing lines-tail)) ;; Display tab characters
 (global-whitespace-mode 1) ;; Enable whitespace-mode globally
 
 (add-to-list 'default-frame-alist
-	     '(font . "Liberation Mono-11"))
+             '(font . "Liberation Mono-10"))
 
 (line-number-mode 1)
 (column-number-mode 1)
