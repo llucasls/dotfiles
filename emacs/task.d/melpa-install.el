@@ -1,4 +1,4 @@
-#!/usr/bin/emacs -x
+#!/usr/bin/env -S emacs -x
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
@@ -7,6 +7,11 @@
   (message "Usage: %s <package>" (nth 2 command-line-args))
   (kill-emacs 1))
 
-(setq package (nth 3 command-line-args))
+(setq package-list (nthcdr 3 command-line-args))
 
-(package-install (intern package))
+(defun install-packages (package-list)
+  "Install all packages from a given list of package names as strings."
+  (dolist (pkg package-list)
+    (package-install (intern pkg))))
+
+(install-packages package-list)

@@ -1,4 +1,4 @@
-#!/usr/bin/emacs -x
+#!/usr/bin/env -S emacs -x
 (require 'package)
 (package-activate-all)
 
@@ -7,9 +7,16 @@
   (message "Usage: %s <package>" (nth 2 command-line-args))
   (kill-emacs 1))
 
-(setq package (nth 3 command-line-args))
+(setq package-list (nthcdr 3 command-line-args))
 
-(dolist (pkg package-alist)
-  (let* ((pkg-name (car pkg)) (pkg-desc (cadr pkg)))
-    (when (string-equal pkg-name package)
-      (package-delete pkg-desc))))
+(defun delete-package (package package-alist)
+  (dolist (pkg package-alist)
+    (let ((pkg-name (car pkg)) (pkg-desc (cadr pkg)))
+      (when (string-equal pkg-name package)
+        (package-delete pkg-desc)))))
+
+(defun delete-packages (package-list package-alist)
+  (dolist (pkg package-list)
+    (delete-package pkg package-alist)))
+
+(delete-packages package-list package-alist)
