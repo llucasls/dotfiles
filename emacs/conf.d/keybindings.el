@@ -34,3 +34,5 @@
     (local-set-key "'" 'my-insert-single-quotes)))
 
 (add-hook 'evil-insert-state-entry-hook 'my-enable-single-quotes)
+
+(evil-set-initial-state 'Info-mode 'emacs)
