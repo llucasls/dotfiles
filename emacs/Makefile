@@ -10,12 +10,12 @@ all: byte-code
 byte-code: $(ELC_FILES)
 
 $(ELC_FILES): %.elc: %.el
-	$(CLIENT) --eval '(byte-compile-file "$<")'
+	$(CLIENT) $(FLAGS) --eval '(byte-compile-file "$<")'
 
 native: $(ELN_FILES)
 
 $(ELN_FILES): %.eln: %.el
-	$(CLIENT) --eval '(native-compile "$<")'
+	$(CLIENT) $(FLAGS) --eval '(native-compile "$<")'
 
 clean:
 	rm -f $(ELC_FILES)

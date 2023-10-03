@@ -8,7 +8,7 @@
 (load-module "conf.d/melpa-packages")
 (load-module "conf.d/keybindings")
 
-(setq custom-file (locate-user-emacs-file "conf.d/custom-vars"))
+(setq custom-file (locate-user-emacs-file "conf.d/custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 
 (setq inhibit-startup-screen nil)
@@ -16,11 +16,10 @@
 (setq scroll-margin 14)
 
 (setq-default show-trailing-whitespace t) ;; Show trailing whitespace
-(setq-default whitespace-style '(face tabs tab-mark trailing lines-tail)) ;; Display tab characters
 (global-whitespace-mode 1) ;; Enable whitespace-mode globally
 
 (add-to-list 'default-frame-alist
-	     '(font . "Liberation Mono-11"))
+             '(font . "Liberation Mono-10"))
 
 (line-number-mode 1)
 (column-number-mode 1)
