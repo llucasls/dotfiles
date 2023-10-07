@@ -38,15 +38,15 @@
 (evil-set-initial-state 'Info-mode 'emacs)
 
 (defun insert-tab-action () (interactive)
-  (if (looking-back "^\s*")
+  (if (looking-back "^\s*" nil)
     (evil-shift-right-line 1)
     (insert "\t")))
 
 (define-key evil-insert-state-map (kbd "TAB") 'insert-tab-action)
 
 (defun insert-del-action () (interactive)
-  (if (looking-back "^\s*")
+  (if (looking-back "^\s*" nil)
     (evil-shift-left-line 1)
-    (delete-backward-char 1)))
+    (delete-char -1)))
 
 (define-key evil-insert-state-map (kbd "DEL") 'insert-del-action)
