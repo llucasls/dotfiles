@@ -3,6 +3,7 @@ let s:interpreter_dict = {
   \ 'lisp': 'emacs -x',
   \ 'python': 'python3',
   \ 'javascript': 'node',
+  \ 'php': 'php',
   \ 'java': 'java',
   \ 'coffee': 'coffee',
   \ 'typescript': 'ts-node',
