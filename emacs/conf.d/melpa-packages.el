@@ -14,12 +14,8 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-(use-package evil
-  :init
-  (setq evil-undo-system 'undo-fu))
-(evil-mode 1)
+(use-package evil)
 
 (use-package undo-fu)
 
 (use-package editorconfig)
-(editorconfig-mode 1)
