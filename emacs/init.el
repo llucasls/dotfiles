@@ -1,15 +1,14 @@
-(defun load-module (relative-path)
-  "Load an Elisp module by specifying its path relative to the current script's
-  parent directory."
-  (let* ((script-directory (file-name-directory load-file-name))
-         (absolute-path (expand-file-name relative-path script-directory)))
-    (load absolute-path)))
+(defun load-module (module &rest args)
+  "Load user-defined Elisp module by reading a file name relative to
+`user-emacs-directory'. Passes any extra arguments to `load'."
+  (apply
+    'load (file-name-sans-extension (locate-user-emacs-file module)) args))
 
 (load-module "conf.d/melpa-packages")
 (load-module "conf.d/keybindings")
 
 (setq custom-file (locate-user-emacs-file "conf.d/custom-vars.el"))
-(load custom-file 'noerror 'nomessage)
+(load-module custom-file 'noerror 'nomessage)
 
 (setq inhibit-startup-screen nil)
 
