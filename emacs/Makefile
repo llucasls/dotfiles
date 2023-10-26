@@ -10,7 +10,7 @@ all: byte-code
 byte-code: $(ELC_FILES)
 
 $(ELC_FILES): %.elc: %.el
-	$(CLIENT) $(FLAGS) --eval '(byte-compile-file "$<")'
+	@task.d/compile.el $<
 
 native: $(ELN_FILES)
 
