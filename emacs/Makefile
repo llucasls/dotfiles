@@ -1,7 +1,7 @@
-ELISP_FILES := init.el $(wildcard conf.d/*.el)
+FILES := init.el $(wildcard conf.d/*.el)
 
-ELC_FILES := $(ELISP_FILES:%.el=%.elc)
-ELN_FILES := $(ELISP_FILES:%.el=%.eln)
+ELC_FILES := $(FILES:%.el=%.elc)
+ELN_FILES := $(FILES:%.el=%.eln)
 
 CLIENT = emacsclient --alternate-editor=false
 
