@@ -14,12 +14,15 @@ $(ELC_FILES): %.elc: %.el
 
 native: $(ELN_FILES)
 
-$(ELN_FILES): %.eln: %.el
+$(ELN_FILES): %.eln: %.el native-is-available
 	$(CLIENT) $(FLAGS) --eval '(native-compile "$<")'
+
+native-is-available:
+	@task.d/native-is-available.el
 
 clean:
 	rm -f $(ELC_FILES)
 
-.PHONY: all byte-code native clean
+.PHONY: all byte-code native clean native-is-available
 
 .SILENT: all
