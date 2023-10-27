@@ -25,14 +25,29 @@ either `stdout' or `stderr' as its first argument."
 (puthash "-r" "recursive" my-table)
 (puthash "-h" "help" my-table)
 
-; calls byte-compile-file
 (defun compile-byte-code (files)
   "Compile input files into byte-code."
   (dolist (file files)
     (progn
       (printf "compiling \033[34m%s\033[0m into byte-code: " file)
-      (princ (byte-compile-file file))
-      (printf "\n"))))
+      (condition-case
+        err (let ((result (byte-compile-file file)))
+              (if result
+                (if (string= result t)
+                  (printf "\033[32m%s\033[0m\n" result)
+                  (printf "%s\n" result))
+                (printf "\033[31m%s\033[0m\n" result)))
+        (file-missing
+          (progn
+            (printf
+              "\033[31m%s\033[0m\nError: the file %s doesn't exist.\n"
+              nil (nth 3 err))
+            (setq return-code 1)))
+        (t (progn
+             (printf "\033[31m%s\033[0m\n" nil)
+             (dolist (msg err) (printf "%s " msg))
+             (printf "\n")
+             (setq return-code -1)))))))
 
 (defun compile-native (arg)
   "Calls native-copile")
@@ -51,7 +66,6 @@ either `stdout' or `stderr' as its first argument."
 
 (defun parse-args (argv)
   "do nothing for now")
-
 
 (setq argv (nthcdr 3 command-line-args))
 
