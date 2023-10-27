@@ -5,6 +5,8 @@ ELN_FILES := $(FILES:%.el=%.eln)
 
 CLIENT = emacsclient --alternate-editor=false
 
+MAKEFLAGS := -j -Orecurse
+
 all: byte-code
 
 byte-code: $(ELC_FILES)
