@@ -21,9 +21,14 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:mapleader = ","
+let s:nvimdir = stdpath("config")
+function Source(file)
+  execute printf("source %s/%s", s:nvimdir, a:file)
+endfunction
 
-source /home/lucas/.config/nvim/run_buffer.vim
-source /home/lucas/.config/nvim/search.vim
+call Source("run_buffer.vim")
+call Source("search.vim")
+call Source("keybindings.vim")
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
