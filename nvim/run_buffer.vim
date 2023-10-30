@@ -1,5 +1,6 @@
 const s:interpreter_dict = {
   \ 'vim': 'vim',
+  \ 'lua': 'lua',
   \ 'lisp': 'emacs -x',
   \ 'python': 'python3',
   \ 'javascript': 'node',
