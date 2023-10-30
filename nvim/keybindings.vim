@@ -1,3 +1,5 @@
+let g:mapleader = ","
+
 nnoremap <F2> :NERDTreeToggle <cr>
 nnoremap <F3> :set relativenumber! <cr>
 nnoremap <F4> :nohlsearch<cr>
