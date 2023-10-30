@@ -15,27 +15,30 @@ let s:interpreter_dict = {
   \ 'plaintex': 'lualatex',
   \ 'tex': 'lualatex',
   \ 'c': 'exec-c',
-  \ 'make': 'make -f'
+  \ 'make': 'make -f',
   \ }
+
+function! GetInterpreter()
+  let first_line = getline(1)
+  let shebang_cmd = substitute(first_line, '^#!', '', '')
+  let file_uses_shebang = shebang_cmd != '' && shebang_cmd !=# first_line
+
+  if file_uses_shebang
+    return shebang_cmd
+  elseif s:interpreter_dict->has_key(&filetype)
+    return s:interpreter_dict[&filetype]
+  else
+    echo "Interpreter not found for filetype:" &filetype
+  endif
+endfunction
 
 " Define a function to execute the current buffer
 function! RunBuffer()
-  let first_line = getline(1)
-  let interpreter = substitute(first_line, '^#!', '', '')
-  let filetype = &ft
-
-  if interpreter != '' && interpreter != first_line
-    let cmd = interpreter
-  elseif has_key(s:interpreter_dict, filetype)
-    let cmd = s:interpreter_dict[filetype]
-  else
-    echo "Interpreter not found for filetype: " . filetype
-    return
-  endif
+  let cmd = GetInterpreter()
 
   let file = expand('%')
   let save_cmd = 'silent! wa'
-  if filetype == 'vim'
+  if &filetype ==# 'vim'
     let run_cmd = 'source ' . file
   else
     let run_cmd = '!' . cmd . ' ' . file
@@ -43,5 +46,29 @@ function! RunBuffer()
   execute save_cmd | execute run_cmd
 endfunction
 
+function! RunBufferWithArgs()
+  const l:InputInterrupt = "\1"
+  let cmd = GetInterpreter()
+  let prompt = printf('$ %s ', cmd)
+  let l:input_options = #{prompt: prompt, cancelreturn: l:InputInterrupt}
+  let l:result = input(l:input_options)
+
+  if l:result !=# l:InputInterrupt
+    echo "\n"
+    let l:args = []
+    for l:arg in l:result->split()
+      let l:args += [expand(l:arg)]
+    endfor
+
+    let l:result = l:args->join()
+    let l:command = printf('%s %s', cmd, l:result)
+    let l:output = systemlist(l:command)
+    for line in l:output
+      echo line
+    endfor
+  endif
+endfunction
+
 " Map a key to run the current buffer
 nnoremap <leader><leader> :w<cr>:call RunBuffer()<cr>
+nnoremap <leader><space> :w<cr>:call RunBufferWithArgs()<cr>
