@@ -1,4 +1,4 @@
-let s:interpreter_dict = {
+const s:interpreter_dict = {
   \ 'vim': 'vim',
   \ 'lisp': 'emacs -x',
   \ 'python': 'python3',
@@ -17,6 +17,8 @@ let s:interpreter_dict = {
   \ 'c': 'exec-c',
   \ 'make': 'make -f',
   \ }
+
+const s:expand_list = ['%']
 
 function! GetInterpreter()
   let first_line = getline(1)
@@ -57,7 +59,11 @@ function! RunBufferWithArgs()
     echo "\n"
     let l:args = []
     for l:arg in l:result->split()
-      let l:args += [expand(l:arg)]
+      if s:expand_list->index(l:arg) == -1
+        let l:args += [l:arg]
+      else
+        let l:args += [expand(l:arg)]
+      endif
     endfor
 
     let l:result = l:args->join()
