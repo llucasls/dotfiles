@@ -38,3 +38,7 @@ set guicursor+=r:hor100-rCursor
 highlight Cursor guifg=#1E1E1E guibg=#E1E1E1
 
 set scrolloff=12
+
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
