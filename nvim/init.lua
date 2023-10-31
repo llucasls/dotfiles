@@ -4,7 +4,7 @@ local function source(file)
 end
 
 source  'plugins.vim'
-source  'options.vim'
+require 'options'
 require 'keybindings'
 source  'run_buffer.vim'
 source  'search.vim'
