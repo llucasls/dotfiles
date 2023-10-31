@@ -23,6 +23,7 @@ vim.opt.colorcolumn = {80}
 vim.o.mouse = 'a'
 
 -- See invisible characters
+vim.o.list = true
 vim.opt.listchars = {tab = '» ', trail = '+', eol = '$'}
 
 -- Wrap to next line when end of line is reached
