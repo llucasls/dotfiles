@@ -1,12 +1,12 @@
 local nvimdir = vim.fn.stdpath('config')
-function Source(file)
+local function source(file)
   vim.cmd(string.format('source %s/%s', nvimdir, file))
 end
 
-Source  'plugins.vim'
-Source  'options.vim'
+source  'plugins.vim'
+source  'options.vim'
 require 'keybindings'
-Source  'run_buffer.vim'
-Source  'search.vim'
-Source  'caps_lock.vim'
-Source  'help.vim'
+source  'run_buffer.vim'
+source  'search.vim'
+source  'caps_lock.vim'
+source  'help.vim'
