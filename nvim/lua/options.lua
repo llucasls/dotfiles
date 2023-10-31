@@ -14,7 +14,7 @@ vim.o.autoindent = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 2
 vim.o.tabstop = 4
-vim.o.scrolloff = string.format('%.f', vim.o.lines / 3) + 0
+vim.o.scrolloff = string.format('%.f', vim.fn.winheight(0) / 3) + 0
 
 vim.o.clipboard = 'unnamedplus'
 vim.opt.colorcolumn = {80}
