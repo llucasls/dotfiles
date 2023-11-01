@@ -6,7 +6,7 @@ end
 source  'plugins.vim'
 require 'options'
 require 'keybindings'
-source  'run_buffer.vim'
+require 'run_buffer'
 source  'search.vim'
 source  'help.vim'
 require 'autocmd'
