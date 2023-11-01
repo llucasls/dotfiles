@@ -1,5 +1,0 @@
-# https://github.com/randy3k/radian
-local({
-  options(radian.insert_new_line = FALSE)
-  source("~/.config/radian/functions")
-})
