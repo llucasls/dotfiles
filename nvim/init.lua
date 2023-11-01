@@ -3,7 +3,7 @@ local function source(file)
   vim.cmd(string.format('source %s/%s', nvimdir, file))
 end
 
-source  'plugins.vim'
+require 'plugins'
 require 'options'
 require 'keybindings'
 require 'run_buffer'
