@@ -5,7 +5,7 @@
   (insert "()")
   (backward-char))
 
-(define-key evil-insert-state-map (kbd "(") 'my-insert-parentheses)
+(keymap-set evil-insert-state-map (kbd "(") 'my-insert-parentheses)
 
 (defun my-insert-quotes ()
   "Insert `\"\"` and move the cursor back one character if a single `\"` is
@@ -14,7 +14,7 @@
   (insert "\"\"")
   (backward-char))
 
-(define-key evil-insert-state-map "\"" 'my-insert-quotes)
+(keymap-set evil-insert-state-map "\"" 'my-insert-quotes)
 
 (defun my-insert-single-quotes ()
   "Insert `''` and move the cursor back one character if a single `'` is
@@ -42,11 +42,11 @@
     (evil-shift-right-line 1)
     (insert "\t")))
 
-(define-key evil-insert-state-map (kbd "TAB") 'insert-tab-action)
+(keymap-set evil-insert-state-map (kbd "TAB") 'insert-tab-action)
 
 (defun insert-del-action () (interactive)
   (if (looking-back "^\s*" nil)
     (evil-shift-left-line 1)
     (delete-char -1)))
 
-(define-key evil-insert-state-map (kbd "DEL") 'insert-del-action)
+(keymap-set evil-insert-state-map (kbd "DEL") 'insert-del-action)
