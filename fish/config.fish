@@ -156,9 +156,9 @@ if status is-login
     set -pgx PATH $HOME/.local/bin
   end
 
-  if test -x "/usr/bin/nvim"
+  if type nvim &> /dev/null
     set -gx EDITOR nvim
-  else if test -x "/usr/bin/vim"
+  else if type vim &> /dev/null
     set -gx EDITOR vim
   end
 
