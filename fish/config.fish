@@ -1,7 +1,4 @@
 if status is-interactive
-  function fish_greeting
-  end
-
   function print_fish_icon
     set -f fish_icon " 󰈺  "
 
@@ -126,52 +123,5 @@ if status is-interactive
   set fish_cursor_replace underscore
   set fish_cursor_replace_one underscore
 
-  set -xg LESS '-R~'
-
-  abbr --add git1 git log --oneline
-  #abbr --add gitl 'git log --pretty=" - %h %ai %s" | cut -d \  -f 1-4,7- | sed s"/:\s/:\t/" | less -F'
-  abbr --add gitl 'git log --pretty="%h %ai %s" | format-nocolor | less -F'
-  abbr --add ggo git checkout
-  abbr --add clip xclip -selection clipboard
-  abbr --add egui emacsclient --create-frame
-  abbr --add etty emacsclient --tty
-
   bind --mode replace \cl 'clear'
-end
-
-if status is-login
-  if test -d $HOME/.games
-    set -pgx PATH $HOME/.games
-  end
-
-  if test -d $HOME/.cargo/bin
-    set -pgx PATH $HOME/.cargo/bin
-  end
-
-  if test -d $HOME/.bin
-    set -pgx PATH $HOME/.bin
-  end
-
-  if test -d $HOME/.local/bin
-    set -pgx PATH $HOME/.local/bin
-  end
-
-  if type nvim &> /dev/null
-    set -gx EDITOR nvim
-  else if type vim &> /dev/null
-    set -gx EDITOR vim
-  end
-
-  set -gx XDG_CONFIG_HOME $HOME/.config
-  set -gx XDG_DATA_HOME $HOME/.local/share
-  set -gx XDG_STATE_HOME $HOME/.local/state
-  set -gx XDG_CACHE_HOME $HOME/.cache
-  set -gx XDG_RUNTIME_DIR /run/user/$(id -u)
-
-  set -gx STATUS_BAR_NOTIFY false
-
-  if test $(tty) = /dev/tty1
-    set -gx FISH_PID $fish_pid
-    startx &> /dev/null
-  end
 end
