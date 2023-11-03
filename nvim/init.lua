@@ -1,0 +1,7 @@
+require 'plugins'
+require 'options'
+require 'keybindings'
+require 'run_buffer'
+require 'search'
+require 'help'
+require 'autocmd'
