@@ -12,8 +12,6 @@
 
 (setq inhibit-startup-screen nil)
 
-(setq scroll-margin 14)
-
 (setq-default show-trailing-whitespace t) ;; Show trailing whitespace
 (global-whitespace-mode 1) ;; Enable whitespace-mode globally
 
