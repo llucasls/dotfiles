@@ -43,7 +43,7 @@
 
 ; MAPPINGS
 
-(keymap-set evil-insert-state-map (kbd "(") 'my-insert-parentheses)
+(keymap-set evil-insert-state-map "(" 'my-insert-parentheses)
 
 (keymap-set evil-insert-state-map "\"" 'my-insert-quotes)
 
@@ -51,6 +51,6 @@
 
 (evil-set-initial-state 'Info-mode 'emacs)
 
-(keymap-set evil-insert-state-map (kbd "TAB") 'insert-tab-action)
+(keymap-set evil-insert-state-map "TAB" 'insert-tab-action)
 
-(keymap-set evil-insert-state-map (kbd "DEL") 'insert-del-action)
+(keymap-set evil-insert-state-map "DEL" 'insert-del-action)
