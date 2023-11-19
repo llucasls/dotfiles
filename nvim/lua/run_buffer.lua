@@ -19,7 +19,7 @@ local interpreter_table = {
   make = 'make -f',
 }
 
-local expand_list = {'%'}
+local expand_list = {'%', '#'}
 
 local function get_interpreter()
   first_line = vim.fn.getline(1)
