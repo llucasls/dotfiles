@@ -3,7 +3,7 @@ function _sv_enable
   set service $argv[1]
 
   if test ! -d $SVDIR
-    mkdir -p $SVDIR
+    mkdir -m 700 -p $SVDIR
   end
 
   ln -sft $SVDIR $HOME/.repos/runit-service/sv/$service
