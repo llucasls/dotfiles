@@ -240,7 +240,7 @@ disabled = false
 [custom.artix]
 symbol = "   "
 os = "linux"
-style = "bold 32"
+style = "bold 38"
 shell = ["/bin/sh"]
 when = '. /etc/os-release; test "${ID}" = "artix"'
 disabled = false
