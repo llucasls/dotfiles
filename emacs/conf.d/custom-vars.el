@@ -12,11 +12,13 @@
  '(evil-want-C-d-scroll t)
  '(evil-want-C-u-scroll t)
  '(evil-want-Y-yank-to-eol t)
+ '(frame-resize-pixelwise t)
  '(maximum-scroll-margin 0.33)
  '(scroll-down-aggressively 0.0)
  '(scroll-margin 100)
  '(scroll-up-aggressively 0.0)
- '(whitespace-style '(face trailing tabs lines-tail tab-mark)))
+ '(whitespace-style '(face trailing tabs lines-tail tab-mark))
+ '(window-resize-pixelwise t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
