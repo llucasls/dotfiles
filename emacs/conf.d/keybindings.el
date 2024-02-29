@@ -27,7 +27,7 @@
       (eq major-mode 'lisp-interaction-mode)))
 
 (defun my-enable-single-quotes ()
-  "Enable single quotes behavior in not-lisp-related modes."
+  "Enable single quotes behavior in non-lisp modes."
   (when (not (is-lisp))
     (local-set-key "'" 'my-insert-single-quotes)))
 
