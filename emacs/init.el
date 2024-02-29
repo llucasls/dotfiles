@@ -9,6 +9,7 @@
 
 (setq custom-file (locate-user-emacs-file "conf.d/custom-vars.el"))
 (load-module custom-file 'noerror 'nomessage)
+(load-module "conf.d/terminal")
 
 (setq inhibit-startup-screen nil)
 

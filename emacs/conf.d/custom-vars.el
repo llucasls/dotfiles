@@ -12,6 +12,7 @@
  '(evil-want-C-d-scroll t)
  '(evil-want-C-u-scroll t)
  '(evil-want-Y-yank-to-eol t)
+ '(explicit-shell-file-name (executable-find "bash") t)
  '(frame-resize-pixelwise t)
  '(maximum-scroll-margin 0.33)
  '(scroll-down-aggressively 0.0)
