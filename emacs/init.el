@@ -12,8 +12,8 @@
 
 (setq inhibit-startup-screen nil)
 
-(setq-default show-trailing-whitespace t) ;; Show trailing whitespace
-(global-whitespace-mode 1) ;; Enable whitespace-mode globally
+(setq-default show-trailing-whitespace t)
+(global-whitespace-mode 1)
 
 (add-to-list 'default-frame-alist
              '(font . "Liberation Mono-10"))
