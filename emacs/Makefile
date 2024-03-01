@@ -5,6 +5,8 @@ ELN_FILES := $(FILES:%.el=%.eln)
 
 CLIENT = emacsclient --alternate-editor=false
 
+PACKAGES != awk '/^\(use-package/ { print gensub(")", "", 1, $$2) }' conf.d/melpa-packages.el
+
 MAKEFLAGS := -j -Orecurse
 
 all: byte-code
@@ -22,9 +24,12 @@ $(ELN_FILES): %.eln: %.el native-is-available
 native-is-available:
 	@task.d/native-is-available.el
 
+install: $(PACKAGES)
+	task.d/melpa-install.el $^
+
 clean:
 	rm -f $(ELC_FILES)
 
-.PHONY: all byte-code native clean native-is-available
+.PHONY: all byte-code native clean native-is-available install $(PACKAGES)
 
 .SILENT: all
