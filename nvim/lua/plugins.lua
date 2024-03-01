@@ -2,7 +2,7 @@ local Plug = vim.fn['plug#']
 --  vim.g.polyglot_disabled = ['sensible']
 
 vim.fn['plug#begin']()
--- Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
