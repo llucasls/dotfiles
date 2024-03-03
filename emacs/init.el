@@ -7,6 +7,7 @@
 (load-module "conf.d/melpa-packages")
 (load-module "conf.d/keybindings")
 (load-module "conf.d/tutorial")
+(load-module "conf.d/caps-lock")
 
 (setq custom-file (locate-user-emacs-file "conf.d/custom-vars.el"))
 (load-module custom-file 'noerror 'nomessage)
