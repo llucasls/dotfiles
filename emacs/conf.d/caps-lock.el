@@ -20,8 +20,7 @@
         (error "Process `xset' returned status %d" status))
       (insert output)
       (goto-char (point-min))
-      (search-forward "caps lock:")
-      (re-search-forward "\s+\\b\\(on\\|\\off\\)\\b")
+      (re-search-forward "caps lock:\s+\\b\\(on\\|\\off\\)\\b")
       (match-string 1))))
 
 (defun caps-lock-p ()
